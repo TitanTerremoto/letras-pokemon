@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<!-- ═══════════════════════════════════════════════════════════════
+     LETRAS POKÉMON · CELULAR DEL JUGADOR
+     jugar.html?sala=CÓDIGO — elegí tu lado y respondé en tu turno.
+     La partida la manda la pantalla principal (index.html / horizontal.html con la sala abierta).
+     ═══════════════════════════════════════════════════════════════ -->
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#16161f">
+<title>Letras Pokémon · Jugador</title>
+<link rel="stylesheet" href="css/common.css">
+<link rel="stylesheet" href="css/jugar.css">
+</head>
+<body class="phone">
+<main id="app">
+  <header class="ph-head">
+    <div class="title outline">LETRAS <span>POKÉMON</span></div>
+    <div class="ph-status" id="status">Sin conectar</div>
+  </header>
+
+  <!-- 1 · código de sala -->
+  <section class="slab ph-card" id="v-code" hidden>
+    <h2 class="outline">CÓDIGO DE SALA</h2>
+    <p>Lo muestra el panel de la pantalla principal («Sala en línea»).</p>
+    <form id="codeForm" class="ph-row" autocomplete="off">
+      <input id="codeIn" maxlength="8" placeholder="ABCDE" autocapitalize="characters" spellcheck="false" aria-label="Código de sala">
+      <button class="btn go" type="submit">ENTRAR</button>
+    </form>
+    <p class="ph-note" id="codeMsg"></p>
+  </section>
+
+  <!-- 2 · elegir lado -->
+  <section class="slab ph-card" id="v-seat" hidden>
+    <h2 class="outline">¿QUIÉN SOS?</h2>
+    <div class="ph-seats" id="seats"></div>
+    <p class="ph-note" id="seatMsg"></p>
+  </section>
+
+  <!-- 3 · juego -->
+  <section id="v-game" hidden>
+    <div class="ph-score" id="score"></div>
+    <div class="slab ph-q">
+      <div class="ph-meta"><span id="round" class="outline-s"></span><span class="chip" id="chip"></span></div>
+      <div class="q-text outline-s" id="qText"></div>
+      <div class="q-rule" id="qRule"></div>
+    </div>
+    <div class="ph-turn outline" id="turn"></div>
+    <form class="answer ph-answer" id="answerForm" autocomplete="off">
+      <input id="answer" type="text" spellcheck="false" autocapitalize="characters" enterkeyhint="send" placeholder="POKÉMON…" aria-label="Tu respuesta">
+      <button class="btn go" type="submit">OK</button>
+    </form>
+    <p class="ph-note" id="note" aria-live="polite"></p>
+    <div class="ph-grid" id="grid"></div>
+    <button class="ph-leave" id="leave" type="button">Cambiar de lado</button>
+  </section>
+</main>
+
+<script src="vendor/peerjs.min.js"></script>
+<script src="data/game-data.js"></script>
+<script src="js/config.js"></script>
+<script src="js/net-protocol.js"></script>
+<script src="js/letters.js"></script>
+<script src="js/game.js"></script>
+<script src="js/net-client.js"></script>
+<script src="js/jugar.js"></script>
+</body>
+</html>

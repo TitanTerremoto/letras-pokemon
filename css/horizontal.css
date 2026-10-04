@@ -1,0 +1,67 @@
+/* ═══════════════════════════════════════════════════════════════
+   LAYOUT HORIZONTAL · reel 1920 × 1080 (idéntico a PokeDuelo horizontal)
+   CÁMARAS 1920×482 arriba · JUEGO 1920×598 abajo
+   Columnas laterales = marcador de cada jugador, bajo su cámara.
+   Centro = tablero. Cartas apaisadas (sprite a la izquierda, nombre a la derecha).
+   ═══════════════════════════════════════════════════════════════ */
+:root{
+  --h-banner-top: 0px;
+  --h-cams: 482px;
+  --h-game: 598px;
+  --h-banner-bottom: 0px;
+  --reel-w: 1920px;
+}
+#v-top, #v-bottom{display:none}
+#v-cams{background:#181a20; color:rgba(255,255,255,.35)}
+
+#game{padding:14px 16px;
+  grid-template-columns:290px 1fr 290px;
+  grid-template-rows:50px 12px 76px 52px 1fr;
+  grid-template-areas:"p0 head p1" "p0 prog p1" "p0 q p1" "p0 st p1" "p0 grid p1";
+  column-gap:16px; row-gap:10px}
+
+.player[data-p="0"]{--area:p0} .player[data-p="1"]{--area:p1}
+.player{gap:12px; padding:18px 14px}
+.player .turn{font-size:16px}
+.player .pname{font-size:46px}
+.player .pscore{font-size:112px}
+.player .phist{margin-top:8px; max-width:250px; gap:7px}
+.player .phist i{width:36px; height:36px; line-height:36px; font-size:15px}
+
+.head{justify-content:space-between; padding:0 6px}
+.head .title{font-size:34px}
+.head .title span{margin-left:.3em}
+.head .round-no{font-size:22px}
+
+.question .q-text{font-size:31px; white-space:nowrap}
+
+.status .hits{font-size:26px}
+.status .turnlbl{font-size:22px}
+.status .result{font-size:26px}
+.status .actions .btn{font-size:15px; padding:8px 16px 7px}
+.pips i{width:18px; height:18px}
+
+/* Cartas: el tamaño base es el de la grilla 4×3; app.js calcula --k según cuántas cartas tiene la ronda. */
+.grid{gap:10px 12px}
+.card{flex-direction:row; justify-content:flex-start; gap:calc(12px * var(--k,1)); padding:0 12px 0 8px}
+.card .art{width:calc(88px * var(--k,1)); height:calc(88px * var(--k,1))}
+.card .art img{width:calc(116px * var(--k,1)); height:calc(116px * var(--k,1)); margin:calc(-14px * var(--k,1))}
+.card .name{font-size:calc(23px * var(--k,1)); text-align:left; flex:1}
+.card .name.long{font-size:calc(19px * var(--k,1))}
+.card .badge{top:7px; right:7px; font-size:calc(13px * var(--k,1))}
+.card .badge svg{width:calc(15px * var(--k,1)); height:calc(15px * var(--k,1))}
+.card .detail{bottom:7px; right:8px; font-size:calc(13px * var(--k,1))}
+
+.stamp{font-size:58px}
+.stamp.final{font-size:46px}
+
+/* Letras Pokémon: la fila de estado lleva turno + respuesta + contador */
+.status{gap:16px}
+.question .q-rule{font-size:14px; margin-top:6px}
+.answer input{font-size:24px; width:460px; height:48px; box-sizing:border-box}
+.answer .btn{font-size:15px; padding:9px 12px 7px}
+.status .count{font-size:26px; white-space:nowrap}
+.card .slots{flex:1; justify-content:flex-start; gap:calc(3px * var(--k,1))}
+.card .slots i{width:calc(12px * var(--k,1)); height:calc(20px * var(--k,1))}
+.card .ball{width:calc(70px * var(--k,1)); height:calc(70px * var(--k,1))}
+.toast{font-size:17px}

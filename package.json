@@ -1,0 +1,12 @@
+{
+  "name": "letras-pokemon",
+  "private": true,
+  "description": "Letras Pokémon — modo de juego sobre la base visual de PokeDuelo y Buscaminas Pokémon. Sin dependencias.",
+  "type": "commonjs",
+  "engines": { "node": ">=18" },
+  "scripts": {
+    "build": "node scripts/build-data.mjs",
+    "test": "node scripts/run-tests.mjs",
+    "serve": "node scripts/serve.mjs"
+  }
+}
